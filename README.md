@@ -41,8 +41,7 @@ Whether you're a computer science student, a math enthusiast, or just someone lo
 
 ## Setup Instructions
 
-To set up and run the game, follow these steps:
-For Linux and macOS see below
+To set up and run the game, follow these steps (For Linux and macOS see below):
 
 ## **Windows**
 

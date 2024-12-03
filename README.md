@@ -75,8 +75,7 @@ To set up and run the game, follow these steps (For Linux and macOS see below):
 
 
 ---
-
-**## **Linux****
+##  Linux
 
 
 ### Step 1: Create a Virtual Environment
@@ -105,7 +104,7 @@ To set up and run the game, follow these steps (For Linux and macOS see below):
 
 ---
 
-## **macOS**
+##  macOS
 
 
 ### Step 1: Open Terminal
@@ -150,7 +149,7 @@ To set up and run the game, follow these steps (For Linux and macOS see below):
 
 
 ###  Game Overview
-
+---
 This game generates a graph with a start and an end node. Your objective is to find the shortest path between these two nodes. Here’s a quick overview of how the game works:
 
 - **Graph Generation**: A graph is generated at each level with random edge weights.

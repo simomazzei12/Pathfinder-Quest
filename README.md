@@ -162,16 +162,22 @@ This game generates a graph with a start and an end node. Your objective is to f
   
 If your path length closely matches the computed shortest path, you win the round!
 
-###  Run the Game
+##  Run the Game
 To start playing, run the following command:
 
-##  Windows
+###  Windows
 ```cmd
 python game.py
 ```
-## Linux and macOS
+### Linux and macOS
 ```bash
 python3 game.py
 ```
+
+##  Error handling:
+---
+Please make sure:
+- Your terminal or command prompt is inside the directory where game.py is located
+- The required Python dependencies (like pygame and networkx) are installed in the active virtual environment
 
 Enjoy playing **Pathfinder Quest**!

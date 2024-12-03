@@ -163,9 +163,13 @@ This game generates a graph with a start and an end node. Your objective is to f
 If your path length closely matches the computed shortest path, you win the round!
 
 ###  Run the Game
-
 To start playing, run the following command:
 
+##  Windows
+```cmd
+python game.py
+```
+## Linux and macOS
 ```bash
 python3 game.py
 ```

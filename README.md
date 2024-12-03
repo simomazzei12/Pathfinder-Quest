@@ -1,7 +1,4 @@
-# Pathfinder-Quest
-HSG students' project for the course Skills: Programming with Advanced Computer Languages
-
-**Pathfinder Quest** **Pathfinder Quest: An Interactive Pathfinding Game**
+**Pathfinder Quest: An Interactive Pathfinding Game**
 
 Pathfinder Quest is an engaging and educational game designed to help players understand and explore graph theory and pathfinding algorithms in a fun, interactive way. The objective of the game is to find the shortest path between nodes on a graph, leveraging your logical thinking and strategic planning skills.
 
@@ -45,34 +42,134 @@ Whether you're a computer science student, a math enthusiast, or just someone lo
 ## Setup Instructions
 
 To set up and run the game, follow these steps:
+For Linux and macOS see below
 
-### 1. Install Virtual Environment
+## **Windows**
 
-Use the following commands to create and activate a virtual environment depending on your operating system:
+### Step 1: Install Python
+1. Open a browser and go to [python.org](https://www.python.org/).
+2. Click **Downloads**, and download the installer for Windows.
+3. Run the downloaded file.
+4. During installation:
+   - **IMPORTANT**: Check the box that says **"Add Python to PATH"**.
+   - Click **Install Now** and wait for it to finish.
 
-#### On Linux or macOS:
+### Step 2: Open Command Prompt
+1. Press `Win + R` to open the "Run" dialog box.
+2. Type `cmd` and press Enter. This opens the Command Prompt.
 
-```bash
-python3 -m venv name_environment
-source name_environment/bin/activate
-```
+### Step 3: Create a Virtual Environment
+1. Navigate to the folder where you want your environment (e.g., `C:\Projects`):
+   ```cmd
+   cd C:\Projects
+   ```
+2. Create a virtual environment:
+   ```cmd
+   python -m venv myenv
+   ```
+   Replace `myenv` with the name you want for your environment.
 
-#### On Windows:
+### Step 4: Activate the Environment
+1. Activate the virtual environment:
+   ```cmd
+   myenv\Scripts\activate
+   ```
+   You'll see `(myenv)` appear in the prompt, meaning the environment is active.
 
-```cmd
-python -m venv name_environment
-name_environment\Scripts\activate
-```
+### Step 5: Install Dependencies
+1. Use `pip` to install packages:
+   ```cmd
+  pip install networkx pygame
+   ```
 
-Replace `name_environment` with your desired environment name.
+---
 
-### 2. Install Dependencies
+## **Linux**
 
-Once the virtual environment is active, install the necessary dependencies:
+### Step 1: Install Python
+1. Open a terminal (search for "Terminal").
+2. Type the following to install Python and pip (if not already installed):
+   ```bash
+   sudo apt update
+   sudo apt install python3 python3-venv python3-pip
+   ```
 
-```bash
-pip install networkx pygame
-```
+### Step 2: Create a Virtual Environment
+1. Navigate to the folder where you want your environment:
+   ```bash
+   cd ~/projects
+   ```
+2. Create a virtual environment:
+   ```bash
+   python3 -m venv myenv
+   ```
+   Replace `myenv` with your preferred environment name.
+
+### Step 3: Activate the Environment
+1. Activate the virtual environment:
+   ```bash
+   source myenv/bin/activate
+   ```
+   The prompt will now show `(myenv)`.
+
+### Step 4: Install Dependencies
+1. Use `pip` to install libraries or tools:
+   ```bash
+   pip install networkx pygame
+   ```
+
+---
+
+## **macOS**
+
+### Step 1: Install Python
+1. Open a browser and go to [python.org](https://www.python.org/).
+2. Download the installer for macOS.
+3. Run the installer and follow the instructions.
+
+### Step 2: Open Terminal
+1. Open Terminal from the **Applications > Utilities** folder or by searching "Terminal" in Spotlight.
+
+### Step 3: Create a Virtual Environment
+1. Navigate to the folder where you want your environment:
+   ```bash
+   cd ~/projects
+   ```
+2. Create a virtual environment:
+   ```bash
+   python3 -m venv myenv
+   ```
+   Replace `myenv` with your preferred name.
+
+### Step 4: Activate the Environment
+1. Activate the virtual environment:
+   ```bash
+   source myenv/bin/activate
+   ```
+   You’ll see `(myenv)` in the terminal prompt.
+
+### Step 5: Install Dependencies
+1. Use `pip` to install any required libraries:
+   ```bash
+   pip install networkx pygame
+   ```
+
+---
+
+## **General Notes for All Platforms**
+
+- **Deactivate the Environment**:
+  - When done, deactivate the environment:
+    ```bash
+    deactivate
+    ```
+- **Reactivate Later**:
+  - Go back to the folder and use the `activate` command again.
+
+---
+
+This step-by-step process ensures that even someone new to computers can set up a Python environment on any operating system.
+
 
 ### 3. Game Overview
 

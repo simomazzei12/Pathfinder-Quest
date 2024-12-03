@@ -45,19 +45,11 @@ To set up and run the game, follow these steps (For Linux and macOS see below):
 
 ## **Windows**
 
-### Step 1: Install Python
-1. Open a browser and go to [python.org](https://www.python.org/).
-2. Click **Downloads**, and download the installer for Windows.
-3. Run the downloaded file.
-4. During installation:
-   - **IMPORTANT**: Check the box that says **"Add Python to PATH"**.
-   - Click **Install Now** and wait for it to finish.
-
-### Step 2: Open Command Prompt
+### Step 1: Open Command Prompt
 1. Press `Win + R` to open the "Run" dialog box.
 2. Type `cmd` and press Enter. This opens the Command Prompt.
 
-### Step 3: Create a Virtual Environment
+### Step 2: Create a Virtual Environment
 1. Navigate to the folder where you want your environment (e.g., `C:\Projects`):
    ```cmd
    cd C:\Projects
@@ -68,32 +60,26 @@ To set up and run the game, follow these steps (For Linux and macOS see below):
    ```
    Replace `myenv` with the name you want for your environment.
 
-### Step 4: Activate the Environment
+### Step 3: Activate the Environment
 1. Activate the virtual environment:
    ```cmd
    myenv\Scripts\activate
    ```
    You'll see `(myenv)` appear in the prompt, meaning the environment is active.
 
-### Step 5: Install Dependencies
-1. Use `pip` to install packages:
+### Step 4: Install Dependencies
+1. Use pip to install packages:
    ```cmd
-  pip install networkx pygame
+   pip install networkx pygame
    ```
+
 
 ---
 
 **## **Linux****
 
-### Step 1: Install Python
-1. Open a terminal (search for "Terminal").
-2. Type the following to install Python and pip (if not already installed):
-   ```bash
-   sudo apt update
-   sudo apt install python3 python3-venv python3-pip
-   ```
 
-### Step 2: Create a Virtual Environment
+### Step 1: Create a Virtual Environment
 1. Navigate to the folder where you want your environment:
    ```bash
    cd ~/projects
@@ -104,14 +90,14 @@ To set up and run the game, follow these steps (For Linux and macOS see below):
    ```
    Replace `myenv` with your preferred environment name.
 
-### Step 3: Activate the Environment
+### Step 2: Activate the Environment
 1. Activate the virtual environment:
    ```bash
    source myenv/bin/activate
    ```
    The prompt will now show `(myenv)`.
 
-### Step 4: Install Dependencies
+### Step 3: Install Dependencies
 1. Use `pip` to install libraries or tools:
    ```bash
    pip install networkx pygame
@@ -121,15 +107,11 @@ To set up and run the game, follow these steps (For Linux and macOS see below):
 
 ## **macOS**
 
-### Step 1: Install Python
-1. Open a browser and go to [python.org](https://www.python.org/).
-2. Download the installer for macOS.
-3. Run the installer and follow the instructions.
 
-### Step 2: Open Terminal
+### Step 1: Open Terminal
 1. Open Terminal from the **Applications > Utilities** folder or by searching "Terminal" in Spotlight.
 
-### Step 3: Create a Virtual Environment
+### Step 2: Create a Virtual Environment
 1. Navigate to the folder where you want your environment:
    ```bash
    cd ~/projects
@@ -140,14 +122,14 @@ To set up and run the game, follow these steps (For Linux and macOS see below):
    ```
    Replace `myenv` with your preferred name.
 
-### Step 4: Activate the Environment
+### Step 3: Activate the Environment
 1. Activate the virtual environment:
    ```bash
    source myenv/bin/activate
    ```
    You’ll see `(myenv)` in the terminal prompt.
 
-### Step 5: Install Dependencies
+### Step 4: Install Dependencies
 1. Use `pip` to install any required libraries:
    ```bash
    pip install networkx pygame
@@ -180,7 +162,7 @@ This game generates a graph with a start and an end node. Your objective is to f
   
 If your path length closely matches the computed shortest path, you win the round!
 
-### 4. Run the Game
+###  Run the Game
 
 To start playing, run the following command:
 

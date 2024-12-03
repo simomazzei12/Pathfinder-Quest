@@ -83,7 +83,7 @@ To set up and run the game, follow these steps (For Linux and macOS see below):
 
 ---
 
-## **Linux**
+**## **Linux****
 
 ### Step 1: Install Python
 1. Open a terminal (search for "Terminal").
@@ -165,12 +165,9 @@ To set up and run the game, follow these steps (For Linux and macOS see below):
 - **Reactivate Later**:
   - Go back to the folder and use the `activate` command again.
 
----
-
-This step-by-step process ensures that even someone new to computers can set up a Python environment on any operating system.
 
 
-### 3. Game Overview
+###  Game Overview
 
 This game generates a graph with a start and an end node. Your objective is to find the shortest path between these two nodes. Here’s a quick overview of how the game works:
 

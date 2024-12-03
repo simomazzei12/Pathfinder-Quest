@@ -171,4 +171,3 @@ python3 game.py
 ```
 
 Enjoy playing **Pathfinder Quest**!
-```

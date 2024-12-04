@@ -1,5 +1,4 @@
 import pygame
-import numpy
 import networkx as nx
 import random
 

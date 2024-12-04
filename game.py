@@ -250,108 +250,161 @@ def draw_graph():
             screen.blit(label_text, label_rect)  # Draw the label on the screen
 
     # Draw action buttons for the game
-    draw_button("Finish", 650, 550, 100, 40)
-    draw_button("Undo", 520, 550, 100, 40)
+    draw_button("Finish", 650, 550, 100, 40)  # Finish button at bottom right
+    draw_button("Undo", 520, 550, 100, 40)  # Undo button to reverse actions
+    # Show or hide solution button
     solution_button_text = "Hide Solution" if show_solution else "Show Solution"
-    draw_button(solution_button_text, WIDTH - 150, 10, 130, 40)
+    draw_button(solution_button_text, WIDTH - 150, 10, 130, 40)  # Positioned at the top-right corner
 
-    pygame.display.flip()
+    pygame.display.flip()  # Update the display with all the changes
 
 
 def get_node_from_position(mouse_pos, radius=20):
+    """
+    Returns the node corresponding to a given mouse position.
+    Parameters:
+        mouse_pos: The (x, y) position of the mouse click.
+        radius: The radius within which a click is considered valid.
+    Returns:
+        The node if found, otherwise None.
+    """
     for node, coord in pos.items():
+        # Check if the mouse position is within the radius of the node
         if (coord[0] - mouse_pos[0]) ** 2 + (coord[1] - mouse_pos[1]) ** 2 < radius ** 2:
-            return node
-    return None
+            return node  # Return the node if it matches
+    return None  # Return None if no match is found
 
 def draw_button(text, x, y, width, height):
-    pygame.draw.rect(screen, GRAY, (x, y, width, height))
-    pygame.draw.rect(screen, BLACK, (x, y, width, height), 2)
-    label = FONT.render(text, True, BLACK)
-    label_rect = label.get_rect(center=(x + width / 2, y + height / 2))
-    screen.blit(label, label_rect)
+    """
+    Draws a rectangular button with text on the screen.
+    Parameters:
+        text: The label for the button.
+        x, y: The top-left corner coordinates of the button.
+        width, height: Dimensions of the button.
+    """
+    pygame.draw.rect(screen, GRAY, (x, y, width, height))  # Draw the button background
+    pygame.draw.rect(screen, BLACK, (x, y, width, height), 2)  # Draw the button border
+    label = FONT.render(text, True, BLACK)  # Render the button label
+    label_rect = label.get_rect(center=(x + width / 2, y + height / 2))   # Position label at button center
+    screen.blit(label, label_rect)  # Draw the label on the button
 
 def is_button_clicked(x, y, width, height, mouse_pos):
+    """
+    Checks if a button has been clicked based on mouse position.
+    Parameters:
+        x, y: The top-left corner of the button.
+        width, height: Dimensions of the button.
+        mouse_pos: The (x, y) position of the mouse click.
+    Returns:
+        True if the button was clicked, False otherwise.
+    """
     return x < mouse_pos[0] < x + width and y < mouse_pos[1] < y + height
 
 def display_popup(message, button_text, score):
-    popup_rect = pygame.Rect(200, 200, 400, 200)
-    pygame.draw.rect(screen, WHITE, popup_rect)
-    pygame.draw.rect(screen, BLACK, popup_rect, 3)
+    """
+    Displays a popup with a message, a button, and the player's score.
+    Parameters:
+        message: The message to display in the popup.
+        button_text: The text for the button.
+        score: The player's score to display.
+    Returns:
+        "next" if the button is clicked, or "quit" if the game is closed.
+    """
+    popup_rect = pygame.Rect(200, 200, 400, 200)  # Define the popup rectangle
+    pygame.draw.rect(screen, WHITE, popup_rect)  # Draw the popup background
+    pygame.draw.rect(screen, BLACK, popup_rect, 3)  # Draw the popup border
 
+    # Display the message
     message_label = FONT.render(message, True, BLACK)
     message_rect = message_label.get_rect(center=(popup_rect.centerx, popup_rect.y + 50))
     screen.blit(message_label, message_rect)
 
+    # Display the score
     score_label = FONT.render(f"Score: {score}", True, BLACK)
     score_rect = score_label.get_rect(center=(popup_rect.centerx, popup_rect.y + 90))
     screen.blit(score_label, score_rect)
 
-    button_rect = pygame.Rect(popup_rect.centerx - 50, popup_rect.y + 130, 100, 40)
+    # Draw the button
+    button_rect = pygame.Rect(popup_rect.centerx - 50, popup_rect.y + 130, 100, 40)  # Position of the button
     draw_button(button_text, button_rect.x, button_rect.y, button_rect.width, button_rect.height)
 
-    pygame.display.flip()
-    
+    pygame.display.flip()  # Update the display with the popup
+
+    # Wait for player interaction
     while True:
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+            if event.type == pygame.QUIT:  # Handle game quit
                 pygame.quit()
                 return "quit"
-            elif event.type == pygame.MOUSEBUTTONDOWN:
+            elif event.type == pygame.MOUSEBUTTONDOWN:  # Handle button click
+                # Check if the button was clicked
                 if is_button_clicked(button_rect.x, button_rect.y, button_rect.width, button_rect.height, event.pos):
-                    return "next"
+                    return "next"  # Return "next" to continue to the game
 
 def main():
+    """
+    Main function to run the game. Handles the game loop, user interactions, and level progression.
+    """
     # Show the intro screen and wait for user to start the game
     if not display_intro_screen():
-        return
+        return  # Exit if the player quits from the intro screen
 
-    level = 1
-    score = 0
+    level = 1  # Start at level 1
+    score = 0  # Initialize the player's score
     
-    running = True
+    running = True  # Game is running
     while running:
+        # Set up the current level (generate graph, nodes, paths)
         setup_level(level, reset_graph=True)
         
-        while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
+        while True:  # Inner loop for gameplay within a level
+            for event in pygame.event.get():  # Process player inputs
+                if event.type == pygame.QUIT:  # Check if the player wants to quit
                     # Properly exit the game
-                    pygame.quit()
-                    exit()
-                elif event.type == pygame.MOUSEBUTTONDOWN:
-                    mouse_pos = pygame.mouse.get_pos()
+                    pygame.quit()  # Exit pygame
+                    exit()  # Exit the program
+                    
+                elif event.type == pygame.MOUSEBUTTONDOWN:  # Handle mouse click events
+                    mouse_pos = pygame.mouse.get_pos()  # Get the position of the mouse click
+                    # Check if the "Finish" button was clicked
                     if is_button_clicked(650, 550, 100, 40, mouse_pos):
+                        # Check if the player's path is close to the shortest path
                         if abs(total_path_weight[0] - shortest_path_length) <= 1:
-                            score += 10
+                            score += 10  # Award points for a correct path
+                            # Display a popup indicating the player won
                             result = display_popup("You won!", "Next", score)
-                            if result == "next":
-                                level += 1
-                                setup_level(level, reset_graph=True)
-                                break
+                            if result == "next":  # If the player clicks "Next"
+                                level += 1  # Move to the next level
+                                setup_level(level, reset_graph=True)  # Set up the new level
+                                break  # Break out of inner loop to start the new level
                         else:
+                            # Display a popup indicating the player lost
                             result = display_popup("You lost!", "Retry", score)
-                            if result == "next":
-                                setup_level(level, reset_graph=False)
+                            if result == "next":  # If the player clicks "Retry"
+                                setup_level(level, reset_graph=False)  # Retry the current level
                                 break
+                    # Check if the "Undo" button was clicked
                     elif is_button_clicked(520, 550, 100, 40, mouse_pos):
-                        undo_last_selection()
+                        undo_last_selection()  # Undo the last node selection
+                    # Check if the "Show/Hide Solution" button was clicked
                     elif is_button_clicked(WIDTH - 150, 10, 100, 40, mouse_pos):
                         global show_solution
-                        show_solution = not show_solution
+                        show_solution = not show_solution  # Toggle solution visibility
                     else:
-                        node = get_node_from_position(mouse_pos)
-                        if node is not None:
+                        # Handle clicking on a graph node
+                        node = get_node_from_position(mouse_pos)  # Get the clicked node
+                        if node is not None:  # If a valid node was clicked
+                            # Determine the last selected node or start node
                             last_node = selected_path[-1] if selected_path else start_node
-                            handle_click_on_node(node, last_node)
+                            handle_click_on_node(node, last_node)  # Process the node click
 
-            draw_graph()  # This will now handle drawing the buttons
+            draw_graph()  # Redraw the graph and update the display
 
 
-        if not running:
+        if not running:  # Exit the main loop if the game is no longer running
             break
 
-    pygame.quit()
+    pygame.quit()  # Quit pygame when the game loop ends
 
 if __name__ == "__main__":
-    main()
+    main()  # Run the main function if this script is executed directly

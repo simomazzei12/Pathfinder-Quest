@@ -44,8 +44,8 @@ def display_intro_screen():
     rules = [
         "INSTRUCTIONS:",
         "1. The 'value' of each path is shown as a number on the given line",
-        "2. The goal is to find path with the shortest total 'value'",
-        "3. Click on nodes to create a path",
+        "2. The goal is to find the path with the shortest total 'value'",
+        "3. Click on the nodes to create a path",
         "4. Press 'Undo' to remove the last selected node",
         "5. Press 'Show Solution' to see the correct path",
         "6. Close the window to end the game",
